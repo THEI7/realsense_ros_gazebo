@@ -29,8 +29,9 @@ RUN apt update -q \
     python3-pip \
     xauth \
     sudo \
-    gazebo libgazebo-dev \
     ros-humble-gazebo-ros-pkgs \
+    ros-humble-xacro \
+    ros-humble-rviz2 \
     # ===== Joystick =====
     ros-humble-joy \
     ros-humble-teleop-twist-joy \
