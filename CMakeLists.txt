@@ -20,6 +20,8 @@ find_package(sensor_msgs REQUIRED)
 
 find_package(gazebo REQUIRED)
 
+SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 include_directories(
     SYSTEM
     include

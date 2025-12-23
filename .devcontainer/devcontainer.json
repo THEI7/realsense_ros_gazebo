@@ -1,0 +1,32 @@
+{
+  "name": "realsense",
+  // "dockerFile": "Dockerfile",
+  "image": "realsense_gazebo_classis_env:latest",
+  "runArgs": [
+    "--gpus",
+    "all",
+    "--privileged",
+    "--network=host",
+    "-e","NVIDIA_DRIVER_CAPABILITIES=all",
+    "-e", "DISPLAY=${localEnv:DISPLAY}",
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix",
+    "--name", "realsense"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
+  "workspaceFolder": "/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind",
+    "source=/dev,target=/dev,type=bind"
+  ],
+  "customizations" : {
+    "jetbrains" : {
+      "settings": {
+        "com.intellij:app:HttpConfigurable.use_http_proxy": true,
+        "com.intellij:app:HttpConfigurable.proxy_host": "127.0.0.1",
+        "com.intellij:app:HttpConfigurable.proxy_port": 7897,
+        "com.intellij:app:HttpConfigurable.proxy_exceptions": ""
+      },
+      "backend" : "IntelliJ"
+    }
+  }
+}
